@@ -59,20 +59,24 @@ def run_assistant():
 
         if answer1.lower() == "a" or answer1.lower() == "troca de pneu":
             print("Sua escolha foi registrada. \n")
+            break
 
         elif answer1.lower() == "b" or answer1.lower() == "manutenção":
             print("Sua escolha foi registrada. \n")
+            break
 
         elif answer1.lower() == "c" or answer1.lower() == "chaveiro para veículo":
             print("Sua escolha foi registrada. \n")
+            break
 
         elif answer1.lower() == "d" or answer1.lower() == "relatar furto ou roubo":
             print("Sua escolha foi registrada. \n")
+            break
 
         elif answer1.lower() == "e" or answer1.lower() == "guincho":
             print("Sua escolha foi registrada. \n")
-
             break
+
         else:
             print("Por favor, responda com uma das opções possíveis.")
 
@@ -85,15 +89,17 @@ def run_assistant():
         answer2 = input("Escolha uma opção: ")
 
         if answer2.lower() == "a" or answer2.lower() == "remover meu veículo de um local":
-            print("Correct!")
+            print("Sua escolha foi registrada. \n")
+            break
 
         elif answer2.lower() == "b" or answer2.lower() == "tecnico par meu veículo":
             print("Sua escolha foi registrada. \n")
+            break
 
         elif answer2.lower() == "c" or answer2.lower() == "situação de acidente":
             print("Sua escolha foi registrada. \n")
-
             break
+
         else:
             print("Por favor, responda com uma das opções possíveis.")
 
@@ -108,17 +114,19 @@ def run_assistant():
         if answer3.lower() == "a" or answer3.lower() == "descrição da situação":
             input("Sua resposta: ")
             print("Recebemos sua descrição. \n")
+            break
 
         elif answer3.lower() == "b" or answer3.lower() == "imagem":
             # ainda não conseguimos dar a opção de upar um arquivo
             input("link da imagem: ")
             print("Recebemos sua imagem. \n")
+            break
 
         elif answer3.lower() == "c" or answer3.lower() == "pular":
             # ainda não conseguimos dar a opção de upar um arquivo
             print("Você escolheu não preencher nesta etapa. \n")
-
             break
+
         else:
             print("Por favor, responda com uma das opções possíveis.")
 
@@ -134,7 +142,6 @@ def run_assistant():
             break
         else:
             print("Incorrect. Please try again.")
-
 
         # Fifth question
     while True:
