@@ -25,25 +25,25 @@ def menu():
 
 def register_data():
     global name
-    name = input("What's your name? ")
-    cpf = input("What's your cpf? ")
-    placa_veiculo = input("What's your vehicle number? ")
-    alteracao_veiculo = input("What's your vehicle alterations? ")
-    numero_contato_wpp = input("Insira seu numero de contato: ")
+    name = input("Qual o seu nome? ")
+    cpf = input("Qual o seu cpf? ")
+    placa_veiculo = input("Insira a placa do seu veículo: ")
+    alteracao_veiculo = input("Foram feitas alterações recentes no veículo? Descreva-as: ") #Talvez dar opções nessa opção em versões futuras
+    numero_contato_wpp = input("Insira seu numero de contato/whatsapp: ")
     email = ("Insira seu email: ")
-    imagem_veiculo = ("Insira uma imagem do seu veículo, com possíveis alterações feitas: ")
+    imagem_veiculo = ("Insira uma ou mais imagens do seu veículo, com possíveis alterações feitas: ")
     
     
 
 
 # A quiz game with repeated questions and the option to play again
 def run_assistant():
-    print("Welcome to our quiz game! Please answer the following questions:")
+    print("Bem vindo! Sou o Cirilo, seu assitente virtual! Escolha a seguir as opções que melhor responda a cada pergunta: ")
 
-    global name
+    global name #importante para usar a variável dentro de def
     if not name:
-        name = input("What's your name? ")
-    print(f"Hello, {name}! Let's get started.")
+        name = input("Qual o seu nome? ")
+    print(f"Olá, {name}! vamos começar.")
 
     # First question
     while True:
