@@ -102,6 +102,7 @@ def run_assistant():
         print("3: Descrição simples do ocorrido e envio de imagem (opcional). ")
         print("a) Faça uma breve descrição da situação. ")
         print("b) Envie uma imagem da situação atual do veículo (se possível).")
+        print("c) Pular essa opção. ")
         answer3 = input("Escolha uma opção: ")
 
         if answer3.lower() == "a" or answer3.lower() == "descrição da situação":
@@ -112,6 +113,10 @@ def run_assistant():
             # ainda não conseguimos dar a opção de upar um arquivo
             input("link da imagem: ")
             print("Recebemos sua imagem. \n")
+
+        elif answer3.lower() == "c" or answer3.lower() == "pular":
+            # ainda não conseguimos dar a opção de upar um arquivo
+            print("Você escolheu não preencher nesta etapa. \n")
 
             break
         else:
