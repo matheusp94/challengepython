@@ -120,23 +120,30 @@ def run_assistant():
 
             break
         else:
-            print("Incorrect. Please try again.")
-
-    # Ask if user wants to play again
-    play_again = input("Do you want to play again? (yes/no) ")
-    if play_again.lower() == "yes":
-        run_assistant()
-    else:
-        print("Thank you for playing! Goodbye!")
+            print("Por favor, responda com uma das opções possíveis.")
 
         # Fourth question
     while True:
-        print("Question 3: What is the tallest mountain in the world?")
+        print("4: What is the tallest mountain in the world?")
         print("a) K2")
         print("b) Mount Everest")
         print("c) Kilimanjaro")
-        answer3 = input("Your answer: ")
-        if answer3.lower() == "b" or answer3.lower() == "mount everest":
+        answer4 = input("Your answer: ")
+        if answer4.lower() == "b" or answer4.lower() == "mount everest":
+            print("Correct!")
+            break
+        else:
+            print("Incorrect. Please try again.")
+
+
+        # Fifth question
+    while True:
+        print("5: What is the tallest mountain in the world?")
+        print("a) K2")
+        print("b) Mount Everest")
+        print("c) Kilimanjaro")
+        answer5 = input("Your answer: ")
+        if answer5.lower() == "b" or answer5.lower() == "mount everest":
             print("Correct!")
             break
         else:
