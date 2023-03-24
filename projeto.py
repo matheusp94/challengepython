@@ -108,23 +108,23 @@ def run_assistant():
         print("3: Descrição simples do ocorrido e envio de imagem (opcional). ")
         print("a) Faça uma breve descrição da situação. ")
         print("b) Envie uma imagem da situação atual do veículo (se possível).")
-        print("c) Pular essa opção. ")
+        print("c) Pular essa opção/seguir com o atendimento. ")
         answer3 = input("Escolha uma opção: ")
 
         if answer3.lower() == "a" or answer3.lower() == "descrição da situação":
             input("Sua resposta: ")
-            print("Recebemos sua descrição. \n")
-            break
+            print(
+                "Recebemos sua descrição. Você pode também enviar/alterar a imagem da situação. \n")
 
         elif answer3.lower() == "b" or answer3.lower() == "imagem":
             # ainda não conseguimos dar a opção de upar um arquivo
             input("link da imagem: ")
-            print("Recebemos sua imagem. \n")
-            break
+            print(
+                "Recebemos sua imagem. Você pode também enviar/alterar a descrição da situação. \n")
 
         elif answer3.lower() == "c" or answer3.lower() == "pular":
             # ainda não conseguimos dar a opção de upar um arquivo
-            print("Você escolheu não preencher nesta etapa. \n")
+            print("Você escolheu não preencher ou pular esta etapa. \n")
             break
 
         else:
@@ -132,20 +132,24 @@ def run_assistant():
 
         # Fourth question
     while True:
-        print("4: What is the tallest mountain in the world?")
-        print("a) K2")
-        print("b) Mount Everest")
-        print("c) Kilimanjaro")
+        print("4: Qual tipo de atendimento você deseja? ")
+        print("a) Atendimento imediato. ")
+        print("b) Atendimento agendado. ")
         answer4 = input("Your answer: ")
-        if answer4.lower() == "b" or answer4.lower() == "mount everest":
-            print("Correct!")
+        if answer4.lower() == "a" or answer4.lower() == "imediato":
+            print("Enviaremos nosso modal imediatamente!")
             break
+
+        elif answer4.lower() == "b" or answer4.lower() == "agendado":
+            input("Digite uma data e horario que melhor atenda a sua necessidade: ")
+            break
+
         else:
-            print("Incorrect. Please try again.")
+            print("Por favor, responda com uma das opções possíveis.")
 
         # Fifth question
     while True:
-        print("5: What is the tallest mountain in the world?")
+        print("5: Informe o endereço de atendimento. ")
         print("a) K2")
         print("b) Mount Everest")
         print("c) Kilimanjaro")
