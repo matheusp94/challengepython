@@ -23,55 +23,108 @@ def menu():
         else:
             print("Invalid choice. Please try again.")
 
+
 def register_data():
     global name
     name = input("Qual o seu nome? ")
     cpf = input("Qual o seu cpf? ")
     placa_veiculo = input("Insira a placa do seu veículo: ")
-    alteracao_veiculo = input("Foram feitas alterações recentes no veículo? Descreva-as: ") #Talvez dar opções nessa opção em versões futuras
+    # Talvez dar opções nessa opção em versões futuras
+    alteracao_veiculo = input(
+        "Foram feitas alterações recentes no veículo? Descreva-as: ")
     numero_contato_wpp = input("Insira seu numero de contato/whatsapp: ")
     email = ("Insira seu email: ")
-    imagem_veiculo = ("Insira uma ou mais imagens do seu veículo, com possíveis alterações feitas: ")
-    
-    
+    imagem_veiculo = (
+        "Insira uma ou mais imagens do seu veículo, com possíveis alterações feitas: ")
 
 
 # A quiz game with repeated questions and the option to play again
 def run_assistant():
     print("Bem vindo! Sou o Cirilo, seu assitente virtual! Escolha a seguir as opções que melhor responda a cada pergunta: ")
 
-    global name #importante para usar a variável dentro de def
+    global name  # importante para usar a variável dentro de def
     if not name:
         name = input("Qual o seu nome? ")
     print(f"Olá, {name}! vamos começar.")
 
     # First question
     while True:
-        print("Question 1: What is the capital of Canada?")
-        print("a) Toronto")
-        print("b) Ottawa")
-        print("c) Vancouver")
-        answer1 = input("Your answer: ")
-        if answer1.lower() == "b" or answer1.lower() == "ottawa":
-            print("Correct!")
+        print("1: Qual tipo de atendimento você precisa? ")
+        print("a) Troca de pneu")
+        print("b) Manutenção")
+        print("c) Chaveiro para veículo")
+        print("d) Relatar furto ou roubo")
+        print("e) Guincho")
+        answer1 = input("Escolha uma opção: ")
+
+        if answer1.lower() == "a" or answer1.lower() == "troca de pneu":
+            print("Sua escolha foi registrada. \n")
+
+        elif answer1.lower() == "b" or answer1.lower() == "manutenção":
+            print("Sua escolha foi registrada. \n")
+
+        elif answer1.lower() == "c" or answer1.lower() == "chaveiro para veículo":
+            print("Sua escolha foi registrada. \n")
+
+        elif answer1.lower() == "d" or answer1.lower() == "relatar furto ou roubo":
+            print("Sua escolha foi registrada. \n")
+
+        elif answer1.lower() == "e" or answer1.lower() == "guincho":
+            print("Sua escolha foi registrada. \n")
+
             break
         else:
-            print("Incorrect. Please try again.")
+            print("Por favor, responda com uma das opções possíveis.")
 
     # Second question
     while True:
-        print("Question 2: Which is the largest desert in the world?")
-        print("a) Sahara")
-        print("b) Gobi")
-        print("c) Antarctica")
-        answer2 = input("Your answer: ")
-        if answer2.lower() == "a" or answer2.lower() == "sahara":
+        print("2: Escolha uma das opções que melhor atenda a sua necessidade. ")
+        print("a) Preciso remover meu veículo de um local")
+        print("b) Preciso de um técnico par meu veículo")
+        print("c) Me envolvi em uma situação de acidente")
+        answer2 = input("Escolha uma opção: ")
+
+        if answer2.lower() == "a" or answer2.lower() == "remover meu veículo de um local":
             print("Correct!")
+
+        elif answer2.lower() == "b" or answer2.lower() == "tecnico par meu veículo":
+            print("Sua escolha foi registrada. \n")
+
+        elif answer2.lower() == "c" or answer2.lower() == "situação de acidente":
+            print("Sua escolha foi registrada. \n")
+
+            break
+        else:
+            print("Por favor, responda com uma das opções possíveis.")
+
+    # Third question
+    while True:
+        print("3: Descrição simples do ocorrido e envio de imagem (opcional). ")
+        print("a) Faça uma breve descrição da situação. ")
+        print("b) Envie uma imagem da situação atual do veículo (se possível).")
+        answer3 = input("Escolha uma opção: ")
+
+        if answer3.lower() == "a" or answer3.lower() == "descrição da situação":
+            input("Sua resposta: ")
+            print("Recebemos sua descrição. \n")
+
+        elif answer3.lower() == "b" or answer3.lower() == "imagem":
+            # ainda não conseguimos dar a opção de upar um arquivo
+            input("link da imagem: ")
+            print("Recebemos sua imagem. \n")
+
             break
         else:
             print("Incorrect. Please try again.")
 
-    # Third question
+    # Ask if user wants to play again
+    play_again = input("Do you want to play again? (yes/no) ")
+    if play_again.lower() == "yes":
+        run_assistant()
+    else:
+        print("Thank you for playing! Goodbye!")
+
+        # Fourth question
     while True:
         print("Question 3: What is the tallest mountain in the world?")
         print("a) K2")
@@ -90,6 +143,7 @@ def run_assistant():
         run_assistant()
     else:
         print("Thank you for playing! Goodbye!")
+
 
 # Initialize the name variable
 name = None
