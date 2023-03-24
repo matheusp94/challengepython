@@ -1,51 +1,74 @@
-# Menu principal de navegação. Contem:
-# 1- preechimento dos dados do cliente
-# 2- Novo atendimento
-# 3- acompanhar atendimento
-# 4- cancelamento de um atendimento
+# Global variables
+name = ""
+cpf = ""
+email = ""
+phone_number = ""
+placa_veiculo = ""
+alteracao_veiculo = ""
+imagem_veiculo = ""
 
-# A quiz game with a menu to register name, play the game, or end the program
+# Menu function
+
 
 def menu():
-    while True:
-        print("Please select an option:")
-        print("a) Register your name")
-        print("b) Play the game")
-        print("c) End the program")
-        choice = input("Your choice: ")
-        if choice.lower() == "a":
-            register_data()
-        elif choice.lower() == "b":
-            run_assistant()
-        elif choice.lower() == "c":
-            print("Thank you for playing! Goodbye!")
-            break
-        else:
-            print("Invalid choice. Please try again.")
+    print("Bem vindo ao app Porto Seguro! \n")
+    print("a) Registre seus dados")
+    print("b) Novo atendimento")
+    print("c) Acompanhar atendimento")
+    print("d) Cancelar atendimento")
+
+    option = input("Digite a opção desejada (a, b, or c): ")
+    if option.lower() == "a":
+        register_information()
+    elif option.lower() == "b":
+        run_assistant()
+    elif option.lower() == "c":
+        run_open_service()
+    elif option.lower() == "d":
+        print("Cancelando atendimento em aberto...")
+
+    else:
+        print("Por favor, responda com uma das opções possíveis. ")
+
+# Function to register information
 
 
-def register_data():
-    global name
+def register_information():
+    global name, cpf, email, phone_number, placa_veiculo, alteracao_veiculo, imagem_veiculo
+
     name = input("Qual o seu nome? ")
     cpf = input("Qual o seu cpf? ")
-    placa_veiculo = input("Insira a placa do seu veículo: ")
-    # Talvez dar opções nessa opção em versões futuras
-    alteracao_veiculo = input(
-        "Foram feitas alterações recentes no veículo? Descreva-as: ")
-    numero_contato_wpp = input("Insira seu numero de contato/whatsapp: ")
-    email = ("Insira seu email: ")
-    imagem_veiculo = (
-        "Insira uma ou mais imagens do seu veículo, com possíveis alterações feitas: ")
+    email = input("Qual o seu email? ")
+    phone_number = input("Qual o seu número de contato/whatsapp? ")
+    placa_veiculo = input("Qual o número da sua placa? ")
+    alteracao_veiculo = input("Descreva alterações recentes no veículo: ")
+    imagem_veiculo = input("Envie uma imagem recente do veículo (url): ")
+
+    print("Thank you for registering your information!")
+    menu()
+
+# Quiz game function
 
 
-# A quiz game with repeated questions and the option to play again
+def run_open_service():
+    print("\n Segue os dados do seu pedido em aberto:")
+    print(f"Name: {name}")
+    print(f"cpf: {cpf}")
+    print(f"Email: {email}")
+    print(f"Phone number: {phone_number}")
+    print(f"Placa do veículo: {placa_veiculo}")
+    print(f"Alterações no veículo: {alteracao_veiculo}")
+    print(f"Imagem do veículo: {imagem_veiculo}")
+
+
 def run_assistant():
-    print("Bem vindo! Sou o Cirilo, seu assitente virtual! Escolha a seguir as opções que melhor responda a cada pergunta: ")
+    global name
 
-    global name  # importante para usar a variável dentro de def
-    if not name:
-        name = input("Qual o seu nome? ")
-    print(f"Olá, {name}! vamos começar.")
+    print("Welcome to our quiz game! Please answer the following questions:")
+
+    if name == "":
+        name = input("What's your name? ")
+    print(f"Hello, {name}! Let's get started.")
 
     # First question
     while True:
@@ -130,7 +153,7 @@ def run_assistant():
         else:
             print("Por favor, responda com uma das opções possíveis.")
 
-        # Fourth question
+    # Fourth question
     while True:
         print("4: Qual tipo de atendimento você deseja? ")
         print("a) Atendimento imediato. ")
@@ -147,29 +170,34 @@ def run_assistant():
         else:
             print("Por favor, responda com uma das opções possíveis.")
 
-        # Fifth question
+    # Fifth question
     while True:
         print("5: Informe o endereço de atendimento. ")
-        print("a) K2")
-        print("b) Mount Everest")
-        print("c) Kilimanjaro")
-        answer5 = input("Your answer: ")
-        if answer5.lower() == "b" or answer5.lower() == "mount everest":
-            print("Correct!")
+        print("a) Selecione a para entrar com o endereço: ")
+        answer5 = input("Endereço: ")
+        if answer5.lower() == "a":
+            print("O local do ocorrido foi registrado! \n")
             break
         else:
-            print("Incorrect. Please try again.")
+            print("Por favor, digite corretamente. ")
 
     # Ask if user wants to play again
-    play_again = input("Do you want to play again? (yes/no) ")
-    if play_again.lower() == "yes":
+    play_again = input("Deseja refazer o atendimento? (sim/não) ")
+    if play_again.lower() == "sim" or play_again.lower() == "s":
         run_assistant()
     else:
-        print("Thank you for playing! Goodbye!")
+        print("Agradecemos o contato. Tenha um ótimo dia!")
 
+    # Print user information
+    print("\n Segue suas informações:")
+    print(f"Name: {name}")
+    print(f"cpf: {cpf}")
+    print(f"Email: {email}")
+    print(f"Phone number: {phone_number}")
+    print(f"Placa do veículo: {placa_veiculo}")
+    print(f"Alterações no veículo: {alteracao_veiculo}")
+    print(f"Imagem do veículo: {imagem_veiculo}")
 
-# Initialize the name variable
-name = None
 
 # Call the menu function to start the program
 menu()
