@@ -1,10 +1,11 @@
 # Equipe: Matheus, Caio, Julianny, Karen
+
+# variáveis globais
 global lista_atendimentos
 global lista_final
 global nome
 
 # Lista com as escolhas
-
 lista_atendimentos = []
 
 # Variáveis Globais
@@ -63,7 +64,7 @@ def registro_usuario():
 
 
 def run_open_service():
-    print("Segue os dados do seu pedido em aberto:")
+    print("Segue os dados do seu pedido em aberto: \n")
 
     lista_final = [nome, cpf, email, fone_numero, resposta1,
                    resposta2, resposta3, resposta4, resposta5]
@@ -88,7 +89,7 @@ def run_assistant():
 
     # Primeira Pergunta
     while True:
-        print("1: Qual tipo de atendimento você precisa? ")
+        print("1: Qual tipo de atendimento você precisa? \n")
         print("a) Troca de pneu")
         print("b) Manutenção")
         print("c) Chaveiro para veículo")
@@ -131,7 +132,7 @@ def run_assistant():
 
     # Segunda Pergunta
     while True:
-        print("2: Escolha uma das opções que melhor atenda a sua necessidade. ")
+        print("2: Escolha uma das opções que melhor atenda a sua necessidade. \n")
         print("a) Preciso remover meu veículo de um local")
         print("b) Preciso de um técnico para meu veículo")
         print("c) Me envolvi em uma situação de acidente")
@@ -156,7 +157,7 @@ def run_assistant():
             break
 
         else:
-            print("Por favor, responda com uma das opções possíveis.")
+            print("Por favor, responda com uma das opções possíveis. \n")
 
     # Terceira Pergunta
     while True:
@@ -168,16 +169,20 @@ def run_assistant():
 
         if resposta3.lower() == "a" or resposta3.lower() == "descrição da situação":
             input("Sua resposta: ")
-            print("Recebemos a descrição. Você pode também enviar/alterar a imagem da situação.")
-            print("Caso não queira, você pode selecionar a opção C e pular para a próxima etapa. \n")
+            print(
+                "Recebemos a descrição. Você pode também enviar/alterar a imagem da situação.")
+            print(
+                "Caso não queira, você pode selecionar a opção C e pular para a próxima etapa. \n")
             if resposta3.lower() == "a":
                 resposta3 = "Situação descrita"
 
         elif resposta3.lower() == "b" or resposta3.lower() == "imagem":
             # ainda não conseguimos dar a opção de upar um arquivo
             input("link da imagem: ")
-            print("Recebemos sua imagem. Você pode também enviar/alterar a descrição da situação. \n")
-            print("Caso não queira, você pode selecionar a opção C e pular para a próxima etapa. \n")
+            print(
+                "Recebemos sua imagem. Você pode também enviar/alterar a descrição da situação. \n")
+            print(
+                "Caso não queira, você pode selecionar a opção C e pular para a próxima etapa. \n")
             if resposta3.lower() == "b":
                 resposta3 = "Imagem registrada"
 
@@ -189,7 +194,7 @@ def run_assistant():
             break
 
         else:
-            print("Por favor, responda com uma das opções possíveis.")
+            print("Por favor, responda com uma das opções possíveis. \n")
 
     # Quarta Pergunta
     while True:
@@ -200,7 +205,7 @@ def run_assistant():
         if resposta4.lower() == "a" or resposta4.lower() == "imediato":
             endereco = input(
                 "Entre com o endereço em que o veículo se encontra no momento: ")
-            print("Enviaremos nosso modal imediatamente!")
+            print("Enviaremos nosso modal imediatamente! \n")
             if resposta4.lower() == "a":
                 resposta4 = f"Endereço: {endereco}"
             break
@@ -215,19 +220,20 @@ def run_assistant():
             break
 
         else:
-            print("Por favor, responda com uma das opções possíveis.")
+            print("Por favor, responda com uma das opções possíveis. \n")
 
     # Quinta Pergunta REFAZER OU REMOVER
     while True:
         resposta5 = input("Envie uma imagem do seu veículo: ")
         break
 
-    # Perguntar se deseja refazer o atendimento
+    # Perguntar se deseja refazer o atendimento atual (substitui as respostas)
+    # Selecionar "não" retorna ao menu principal, assim é possível fazer outro atendimento(que não substitui respostas)
     refazer_atendimento = input("Deseja refazer esse atendimento? (sim/não) ")
     if refazer_atendimento.lower() == "sim" or refazer_atendimento.lower() == "s":
         run_assistant()
     else:
-        print("Agradecemos o contato. Tenha um ótimo dia!")
+        print("Agradecemos o contato. Tenha um ótimo dia! \n")
 
     # Resumo atendimento
         lista_final = [nome, cpf, email, fone_numero, resposta1,
@@ -238,6 +244,5 @@ def run_assistant():
 
 # Chama a fução menu para iniciar o programa
 menu()
-
 
 # fim do programa
