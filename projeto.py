@@ -1,4 +1,11 @@
 # Equipe: Matheus, Caio, Julianny, Karen
+global lista_atendimentos
+global lista_final
+global nome
+
+# Lista com as escolhas
+
+lista_atendimentos = []
 
 # Variáveis Globais
 nome = ""
@@ -9,7 +16,7 @@ placa_veiculo = ""
 alteracao_veiculo = ""
 imagem_veiculo = ""
 
-# Menu
+# Menu Principal
 
 
 def menu():
@@ -18,55 +25,59 @@ def menu():
         print("a) Registre seus dados")
         print("b) Novo atendimento")
         print("c) Acompanhar atendimento")
-        print("d) Cancelar atendimento")
+        print("d) Encerrar atendimento")
 
-        opcao = input("Digite a opção desejada (a, b, or c): \n")
+        opcao = input("Digite a opção desejada (a, b, c ou d): \n")
         if opcao.lower() == "a":
-            register_information()
+            registro_usuario()
         elif opcao.lower() == "b":
             run_assistant()
         elif opcao.lower() == "c":
             run_open_service()
         elif opcao.lower() == "d":
-            print("Cancelando atendimento em aberto...")
-
+            print("O App da Porto Seguro está sendo encerrado...")
+            exit()
         else:
             print("Por favor, responda com uma das opções possíveis. \n")
 
-# Registro de informações
+#### Registro de informações. O usuário tem a possibilidade de##
+# fazer um registro prévio de algumas informações para agilizar#
+# futuros atendimentos #########################################
+
+# Dados do cliente que independem do seu pedido
 
 
-def register_information():
-    global nome, cpf, email, fone_numero, placa_veiculo, alteracao_veiculo, imagem_veiculo
+def registro_usuario():
+    global nome, cpf, email, fone_numero
 
     nome = input("Qual o seu nome? ")
     cpf = input("Qual o seu cpf? ")
     email = input("Qual o seu email? ")
-    fone_numero = input("Qual o seu número de contato/whatsapp? ")
-    placa_veiculo = input("Qual o número da sua placa? ")
-    alteracao_veiculo = input("Descreva alterações recentes no veículo: ")
-    imagem_veiculo = input("Envie uma imagem recente do veículo (url): \n")
+    fone_numero = input("Qual o seu número de contato/whatsapp? \n")
 
     print("Agradecemos por manter seus dados atualizados!")
     print("Isso agiliza um possível atendimento.\n")
     menu()
 
-# Quiz game function
+# Print informações do pedido do usuário
 
 
 def run_open_service():
     print("Segue os dados do seu pedido em aberto:")
-    print(f"Nome: {nome}")
-    print(f"cpf: {cpf}")
-    print(f"Email: {email}")
-    print(f"Número de contato/whatsapp: {fone_numero}")
-    print(f"Placa do veículo: {placa_veiculo}")
-    print(f"Alterações no veículo: {alteracao_veiculo}")
-    print(f"Imagem do veículo: {imagem_veiculo} \n")
+
+    lista_final = [nome, cpf, email, fone_numero, resposta1,
+                   resposta2, resposta3, resposta4, resposta5]
+
+    lista_atendimentos.append(lista_final)
+
+    for i, lst in enumerate(lista_atendimentos):
+        print("Registro atendimento #{}: {}".format(i+1, lst))
 
 
 def run_assistant():
-    global nome
+    global nome, resposta1, resposta2, resposta3, resposta4, resposta5
+
+    # armazena as informações do pedido do usuário
 
     print("Bem vindo ao nosso asistente virtual!")
     print("Por favor, preencha as perguntas conforme solicitado: \n")
@@ -87,22 +98,32 @@ def run_assistant():
 
         if resposta1.lower() == "a" or resposta1.lower() == "troca de pneu":
             print("Sua escolha foi registrada. \n")
+            if resposta1.lower() == "a":
+                resposta1 = "Troca pneu"
             break
 
         elif resposta1.lower() == "b" or resposta1.lower() == "manutenção":
             print("Sua escolha foi registrada. \n")
+            if resposta1.lower() == "b":
+                resposta1 = "Manutenção"
             break
 
         elif resposta1.lower() == "c" or resposta1.lower() == "chaveiro para veículo":
             print("Sua escolha foi registrada. \n")
+            if resposta1.lower() == "c":
+                resposta1 = "Chaveiro para veículo"
             break
 
         elif resposta1.lower() == "d" or resposta1.lower() == "relatar furto ou roubo":
             print("Sua escolha foi registrada. \n")
+            if resposta1.lower() == "d":
+                resposta1 = "Furto ou roubo"
             break
 
         elif resposta1.lower() == "e" or resposta1.lower() == "guincho":
             print("Sua escolha foi registrada. \n")
+            if resposta1.lower() == "e":
+                resposta1 = "Guincho"
             break
 
         else:
@@ -112,20 +133,26 @@ def run_assistant():
     while True:
         print("2: Escolha uma das opções que melhor atenda a sua necessidade. ")
         print("a) Preciso remover meu veículo de um local")
-        print("b) Preciso de um técnico par meu veículo")
+        print("b) Preciso de um técnico para meu veículo")
         print("c) Me envolvi em uma situação de acidente")
         resposta2 = input("Escolha uma opção: ")
 
         if resposta2.lower() == "a" or resposta2.lower() == "remover meu veículo de um local":
             print("Sua escolha foi registrada. \n")
+            if resposta2.lower() == "a":
+                resposta2 = "Remoção veículo"
             break
 
-        elif resposta2.lower() == "b" or resposta2.lower() == "tecnico par meu veículo":
+        elif resposta2.lower() == "b" or resposta2.lower() == "tecnico para meu veículo":
             print("Sua escolha foi registrada. \n")
+            if resposta2.lower() == "b":
+                resposta2 = "Envio de técnico"
             break
 
         elif resposta2.lower() == "c" or resposta2.lower() == "situação de acidente":
             print("Sua escolha foi registrada. \n")
+            if resposta2.lower() == "c":
+                resposta2 = "Acidente"
             break
 
         else:
@@ -141,18 +168,24 @@ def run_assistant():
 
         if resposta3.lower() == "a" or resposta3.lower() == "descrição da situação":
             input("Sua resposta: ")
-            print(
-                "Recebemos sua descrição. Você pode também enviar/alterar a imagem da situação. \n")
+            print("Recebemos a descrição. Você pode também enviar/alterar a imagem da situação.")
+            print("Caso não queira, você pode selecionar a opção C e pular para a próxima etapa. \n")
+            if resposta3.lower() == "a":
+                resposta3 = "Situação descrita"
 
         elif resposta3.lower() == "b" or resposta3.lower() == "imagem":
             # ainda não conseguimos dar a opção de upar um arquivo
             input("link da imagem: ")
-            print(
-                "Recebemos sua imagem. Você pode também enviar/alterar a descrição da situação. \n")
+            print("Recebemos sua imagem. Você pode também enviar/alterar a descrição da situação. \n")
+            print("Caso não queira, você pode selecionar a opção C e pular para a próxima etapa. \n")
+            if resposta3.lower() == "b":
+                resposta3 = "Imagem registrada"
 
         elif resposta3.lower() == "c" or resposta3.lower() == "pular":
             # ainda não conseguimos dar a opção de upar um arquivo
             print("Você escolheu não preencher ou pular esta etapa. \n")
+            if resposta3.lower() == "c":
+                resposta3 = "Pulou pergunta"
             break
 
         else:
@@ -165,48 +198,46 @@ def run_assistant():
         print("b) Atendimento agendado. ")
         resposta4 = input("Your resposta: ")
         if resposta4.lower() == "a" or resposta4.lower() == "imediato":
-            input("Entre com o endereço em que o veículo se encontra no momento: ")
+            endereco = input(
+                "Entre com o endereço em que o veículo se encontra no momento: ")
             print("Enviaremos nosso modal imediatamente!")
+            if resposta4.lower() == "a":
+                resposta4 = f"Endereço: {endereco}"
             break
 
         elif resposta4.lower() == "b" or resposta4.lower() == "agendado":
-            input("Digite o endereço em que o veículo se encontra: ")
-            input("Digite uma data e horario que melhor atenda a sua necessidade: ")
+            endereco_agendado = input(
+                "Digite o endereço em que o veículo se encontra: ")
+            horario_agendado = input(
+                "Digite uma data e horario que melhor atenda a sua necessidade: ")
+            if resposta4.lower() == "b":
+                resposta4 = f"Endereço: {endereco_agendado} as {horario_agendado}"
             break
 
         else:
             print("Por favor, responda com uma das opções possíveis.")
 
-    # Quinta Pergunta
+    # Quinta Pergunta REFAZER OU REMOVER
     while True:
-        print("5: Informe o endereço de atendimento. ")
-        print("a) Selecione a para entrar com o endereço: ")
-        resposta5 = input("Endereço: ")
-        if resposta5.lower() == "a":
-            print("O local do ocorrido foi registrado! \n")
-            break
-        else:
-            print("Por favor, digite corretamente. ")
+        resposta5 = input("Envie uma imagem do seu veículo: ")
+        break
 
     # Perguntar se deseja refazer o atendimento
-    refazer_atendimento = input("Deseja refazer o atendimento? (sim/não) ")
+    refazer_atendimento = input("Deseja refazer esse atendimento? (sim/não) ")
     if refazer_atendimento.lower() == "sim" or refazer_atendimento.lower() == "s":
         run_assistant()
     else:
         print("Agradecemos o contato. Tenha um ótimo dia!")
 
-    # Print informações do usuário
-    print("\n Segue suas informações:")
-    print(f"Nome: {nome}")
-    print(f"cpf: {cpf}")
-    print(f"Email: {email}")
-    print(f"Número de telefone/whatsapp: {fone_numero}")
-    print(f"Placa do veículo: {placa_veiculo}")
-    print(f"Alterações no veículo: {alteracao_veiculo}")
-    print(f"Imagem do veículo: {imagem_veiculo}")
+    # Resumo atendimento
+        lista_final = [nome, cpf, email, fone_numero, resposta1,
+                       resposta2, resposta3, resposta4, resposta5]
+        print("Segue o resumo do seu atendimento: \n")
+        print(lista_final)
 
 
 # Chama a fução menu para iniciar o programa
 menu()
+
 
 # fim do programa
