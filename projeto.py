@@ -1,151 +1,156 @@
-# Global variables
-name = ""
+# Equipe: Matheus, Caio, Julianny, Karen
+
+# Variáveis Globais
+nome = ""
 cpf = ""
 email = ""
-phone_number = ""
+fone_numero = ""
 placa_veiculo = ""
 alteracao_veiculo = ""
 imagem_veiculo = ""
 
-# Menu function
+# Menu
 
 
 def menu():
     print("Bem vindo ao app Porto Seguro! \n")
-    print("a) Registre seus dados")
-    print("b) Novo atendimento")
-    print("c) Acompanhar atendimento")
-    print("d) Cancelar atendimento")
+    while True:
+        print("a) Registre seus dados")
+        print("b) Novo atendimento")
+        print("c) Acompanhar atendimento")
+        print("d) Cancelar atendimento")
 
-    option = input("Digite a opção desejada (a, b, or c): ")
-    if option.lower() == "a":
-        register_information()
-    elif option.lower() == "b":
-        run_assistant()
-    elif option.lower() == "c":
-        run_open_service()
-    elif option.lower() == "d":
-        print("Cancelando atendimento em aberto...")
+        opcao = input("Digite a opção desejada (a, b, or c): \n")
+        if opcao.lower() == "a":
+            register_information()
+        elif opcao.lower() == "b":
+            run_assistant()
+        elif opcao.lower() == "c":
+            run_open_service()
+        elif opcao.lower() == "d":
+            print("Cancelando atendimento em aberto...")
 
-    else:
-        print("Por favor, responda com uma das opções possíveis. ")
+        else:
+            print("Por favor, responda com uma das opções possíveis. \n")
 
-# Function to register information
+# Registro de informações
 
 
 def register_information():
-    global name, cpf, email, phone_number, placa_veiculo, alteracao_veiculo, imagem_veiculo
+    global nome, cpf, email, fone_numero, placa_veiculo, alteracao_veiculo, imagem_veiculo
 
-    name = input("Qual o seu nome? ")
+    nome = input("Qual o seu nome? ")
     cpf = input("Qual o seu cpf? ")
     email = input("Qual o seu email? ")
-    phone_number = input("Qual o seu número de contato/whatsapp? ")
+    fone_numero = input("Qual o seu número de contato/whatsapp? ")
     placa_veiculo = input("Qual o número da sua placa? ")
     alteracao_veiculo = input("Descreva alterações recentes no veículo: ")
-    imagem_veiculo = input("Envie uma imagem recente do veículo (url): ")
+    imagem_veiculo = input("Envie uma imagem recente do veículo (url): \n")
 
-    print("Thank you for registering your information!")
+    print("Agradecemos por manter seus dados atualizados!")
+    print("Isso agiliza um possível atendimento.\n")
     menu()
 
 # Quiz game function
 
 
 def run_open_service():
-    print("\n Segue os dados do seu pedido em aberto:")
-    print(f"Name: {name}")
+    print("Segue os dados do seu pedido em aberto:")
+    print(f"Nome: {nome}")
     print(f"cpf: {cpf}")
     print(f"Email: {email}")
-    print(f"Phone number: {phone_number}")
+    print(f"Número de contato/whatsapp: {fone_numero}")
     print(f"Placa do veículo: {placa_veiculo}")
     print(f"Alterações no veículo: {alteracao_veiculo}")
-    print(f"Imagem do veículo: {imagem_veiculo}")
+    print(f"Imagem do veículo: {imagem_veiculo} \n")
 
 
 def run_assistant():
-    global name
+    global nome
 
-    print("Welcome to our quiz game! Please answer the following questions:")
+    print("Bem vindo ao nosso asistente virtual!")
+    print("Por favor, preencha as perguntas conforme solicitado: \n")
 
-    if name == "":
-        name = input("What's your name? ")
-    print(f"Hello, {name}! Let's get started.")
+    if nome == "":
+        nome = input("Qual o seu nome? ")
+    print(f"Olá, {nome}! Vamos começar o atendimento. \n")
 
-    # First question
+    # Primeira Pergunta
     while True:
         print("1: Qual tipo de atendimento você precisa? ")
         print("a) Troca de pneu")
         print("b) Manutenção")
         print("c) Chaveiro para veículo")
         print("d) Relatar furto ou roubo")
-        print("e) Guincho")
-        answer1 = input("Escolha uma opção: ")
+        print("e) Guincho \n")
+        resposta1 = input("Escolha uma opção: ")
 
-        if answer1.lower() == "a" or answer1.lower() == "troca de pneu":
+        if resposta1.lower() == "a" or resposta1.lower() == "troca de pneu":
             print("Sua escolha foi registrada. \n")
             break
 
-        elif answer1.lower() == "b" or answer1.lower() == "manutenção":
+        elif resposta1.lower() == "b" or resposta1.lower() == "manutenção":
             print("Sua escolha foi registrada. \n")
             break
 
-        elif answer1.lower() == "c" or answer1.lower() == "chaveiro para veículo":
+        elif resposta1.lower() == "c" or resposta1.lower() == "chaveiro para veículo":
             print("Sua escolha foi registrada. \n")
             break
 
-        elif answer1.lower() == "d" or answer1.lower() == "relatar furto ou roubo":
+        elif resposta1.lower() == "d" or resposta1.lower() == "relatar furto ou roubo":
             print("Sua escolha foi registrada. \n")
             break
 
-        elif answer1.lower() == "e" or answer1.lower() == "guincho":
+        elif resposta1.lower() == "e" or resposta1.lower() == "guincho":
             print("Sua escolha foi registrada. \n")
             break
 
         else:
-            print("Por favor, responda com uma das opções possíveis.")
+            print("Por favor, responda com uma das opções possíveis. \n")
 
-    # Second question
+    # Segunda Pergunta
     while True:
         print("2: Escolha uma das opções que melhor atenda a sua necessidade. ")
         print("a) Preciso remover meu veículo de um local")
         print("b) Preciso de um técnico par meu veículo")
         print("c) Me envolvi em uma situação de acidente")
-        answer2 = input("Escolha uma opção: ")
+        resposta2 = input("Escolha uma opção: ")
 
-        if answer2.lower() == "a" or answer2.lower() == "remover meu veículo de um local":
+        if resposta2.lower() == "a" or resposta2.lower() == "remover meu veículo de um local":
             print("Sua escolha foi registrada. \n")
             break
 
-        elif answer2.lower() == "b" or answer2.lower() == "tecnico par meu veículo":
+        elif resposta2.lower() == "b" or resposta2.lower() == "tecnico par meu veículo":
             print("Sua escolha foi registrada. \n")
             break
 
-        elif answer2.lower() == "c" or answer2.lower() == "situação de acidente":
+        elif resposta2.lower() == "c" or resposta2.lower() == "situação de acidente":
             print("Sua escolha foi registrada. \n")
             break
 
         else:
             print("Por favor, responda com uma das opções possíveis.")
 
-    # Third question
+    # Terceira Pergunta
     while True:
         print("3: Descrição simples do ocorrido e envio de imagem (opcional). ")
         print("a) Faça uma breve descrição da situação. ")
         print("b) Envie uma imagem da situação atual do veículo (se possível).")
         print("c) Pular essa opção/seguir com o atendimento. ")
-        answer3 = input("Escolha uma opção: ")
+        resposta3 = input("Escolha uma opção: ")
 
-        if answer3.lower() == "a" or answer3.lower() == "descrição da situação":
+        if resposta3.lower() == "a" or resposta3.lower() == "descrição da situação":
             input("Sua resposta: ")
             print(
                 "Recebemos sua descrição. Você pode também enviar/alterar a imagem da situação. \n")
 
-        elif answer3.lower() == "b" or answer3.lower() == "imagem":
+        elif resposta3.lower() == "b" or resposta3.lower() == "imagem":
             # ainda não conseguimos dar a opção de upar um arquivo
             input("link da imagem: ")
             print(
                 "Recebemos sua imagem. Você pode também enviar/alterar a descrição da situação. \n")
 
-        elif answer3.lower() == "c" or answer3.lower() == "pular":
+        elif resposta3.lower() == "c" or resposta3.lower() == "pular":
             # ainda não conseguimos dar a opção de upar um arquivo
             print("Você escolheu não preencher ou pular esta etapa. \n")
             break
@@ -153,53 +158,55 @@ def run_assistant():
         else:
             print("Por favor, responda com uma das opções possíveis.")
 
-    # Fourth question
+    # Quarta Pergunta
     while True:
         print("4: Qual tipo de atendimento você deseja? ")
         print("a) Atendimento imediato. ")
         print("b) Atendimento agendado. ")
-        answer4 = input("Your answer: ")
-        if answer4.lower() == "a" or answer4.lower() == "imediato":
+        resposta4 = input("Your resposta: ")
+        if resposta4.lower() == "a" or resposta4.lower() == "imediato":
+            input("Entre com o endereço em que o veículo se encontra no momento: ")
             print("Enviaremos nosso modal imediatamente!")
             break
 
-        elif answer4.lower() == "b" or answer4.lower() == "agendado":
+        elif resposta4.lower() == "b" or resposta4.lower() == "agendado":
+            input("Digite o endereço em que o veículo se encontra: ")
             input("Digite uma data e horario que melhor atenda a sua necessidade: ")
             break
 
         else:
             print("Por favor, responda com uma das opções possíveis.")
 
-    # Fifth question
+    # Quinta Pergunta
     while True:
         print("5: Informe o endereço de atendimento. ")
         print("a) Selecione a para entrar com o endereço: ")
-        answer5 = input("Endereço: ")
-        if answer5.lower() == "a":
+        resposta5 = input("Endereço: ")
+        if resposta5.lower() == "a":
             print("O local do ocorrido foi registrado! \n")
             break
         else:
             print("Por favor, digite corretamente. ")
 
-    # Ask if user wants to play again
-    play_again = input("Deseja refazer o atendimento? (sim/não) ")
-    if play_again.lower() == "sim" or play_again.lower() == "s":
+    # Perguntar se deseja refazer o atendimento
+    refazer_atendimento = input("Deseja refazer o atendimento? (sim/não) ")
+    if refazer_atendimento.lower() == "sim" or refazer_atendimento.lower() == "s":
         run_assistant()
     else:
         print("Agradecemos o contato. Tenha um ótimo dia!")
 
-    # Print user information
+    # Print informações do usuário
     print("\n Segue suas informações:")
-    print(f"Name: {name}")
+    print(f"Nome: {nome}")
     print(f"cpf: {cpf}")
     print(f"Email: {email}")
-    print(f"Phone number: {phone_number}")
+    print(f"Número de telefone/whatsapp: {fone_numero}")
     print(f"Placa do veículo: {placa_veiculo}")
     print(f"Alterações no veículo: {alteracao_veiculo}")
     print(f"Imagem do veículo: {imagem_veiculo}")
 
 
-# Call the menu function to start the program
+# Chama a fução menu para iniciar o programa
 menu()
 
-# End of program
+# fim do programa
