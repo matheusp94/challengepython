@@ -51,7 +51,7 @@ def registro_usuario():
     nome = input("Qual o seu nome? ")
     cpf = input("Qual o seu cpf? ")
     email = input("Qual o seu email? ")
-    fone_numero = input("Qual o seu número de contato/whatsapp? \n")
+    fone_numero = input("Qual o seu número de contato/whatsapp? ")
     print("Agradecemos por manter seus dados atualizados!")
     print("Isso agiliza um possível atendimento.\n")
     menu()
@@ -62,14 +62,15 @@ def registro_usuario():
 def run_open_service():
     print("Segue os dados dos atendimentos em aberto: \n")
     lista_final = [nome, cpf, email, fone_numero, resposta1,
-                   resposta2, resposta3, resposta4, resposta5]
+                   resposta2, resposta3, resposta4, resposta5,
+                   resposta6]
     lista_atendimentos.append(lista_final)
     for i, lst in enumerate(lista_atendimentos):
         print("Registro atendimento #{}: {}".format(i+1, lst))
 
 
 def run_assistant():
-    global nome, resposta1, resposta2, resposta3, resposta4, resposta5
+    global nome, resposta1, resposta2, resposta3, resposta4, resposta5, resposta6
 
     print("Bem vindo ao nosso asistente virtual!")
     print("Por favor, preencha as perguntas conforme solicitado: \n")
@@ -151,7 +152,7 @@ def run_assistant():
 
     # Terceira Pergunta
     while True:
-        print("3: Descrição simples do ocorrido e envio de imagem (opcional). ")
+        print("3: Descrição simples do ocorrido e envio de imagem (opcional). \n")
         print("a) Faça uma breve descrição da situação. ")
         print("b) Envie uma imagem da situação atual do veículo (se possível). ")
         print("c) Pular essa opção/seguir com o atendimento. ")
@@ -188,10 +189,10 @@ def run_assistant():
 
     # Quarta Pergunta
     while True:
-        print("4: Qual tipo de atendimento você deseja? ")
+        print("4: Qual tipo de atendimento você deseja? \n")
         print("a) Atendimento imediato. ")
         print("b) Atendimento agendado. ")
-        resposta4 = input("Your resposta: ")
+        resposta4 = input("Sua resposta: ")
         if resposta4.lower() == "a" or resposta4.lower() == "imediato":
             endereco = input(
                 "Entre com o endereço em que o veículo se encontra no momento: ")
@@ -214,7 +215,14 @@ def run_assistant():
 
     # Quinta Pergunta REFAZER OU REMOVER
     while True:
-        resposta5 = input("Envie uma imagem do seu veículo: ")
+        resposta5 = input("5: Por favor, nos informe a placa do seu veículo: ")
+        print()
+        break
+
+    # Quinta Pergunta REFAZER OU REMOVER
+    while True:
+        resposta6 = input("6: Envie uma imagem do seu veículo: ")
+        print()
         break
 
     # Perguntar se deseja refazer o atendimento atual (substitui as respostas)
@@ -227,9 +235,10 @@ def run_assistant():
 
     # Resumo atendimento
         lista_final = [nome, cpf, email, fone_numero, resposta1,
-                       resposta2, resposta3, resposta4, resposta5]
+                       resposta2, resposta3, resposta4, resposta5, resposta6]
         print("Segue o resumo do seu atendimento: \n")
-        print(lista_final + "\n")
+        print(lista_final)
+        print("\n")
         print("Caso deseje, poderá realizar outro atendimento. \n")
 
 
