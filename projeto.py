@@ -238,7 +238,7 @@ def run_assistant():
                        resposta2, resposta3, resposta4, resposta5, resposta6]
         print("Segue o resumo do seu atendimento: \n")
         print(lista_final)
-        print("\n")
+        print()
         print("Caso deseje, poderá realizar outro atendimento. \n")
 
 
