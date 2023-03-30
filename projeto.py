@@ -1,9 +1,7 @@
 # Equipe: Matheus, Caio, Julianny, Karen
 
 # variáveis globais
-global lista_atendimentos
-global lista_final
-global nome
+global lista_atendimentos, lista_final, nome
 
 # Lista com as escolhas
 lista_atendimentos = []
@@ -50,12 +48,10 @@ def menu():
 
 def registro_usuario():
     global nome, cpf, email, fone_numero
-
     nome = input("Qual o seu nome? ")
     cpf = input("Qual o seu cpf? ")
     email = input("Qual o seu email? ")
     fone_numero = input("Qual o seu número de contato/whatsapp? \n")
-
     print("Agradecemos por manter seus dados atualizados!")
     print("Isso agiliza um possível atendimento.\n")
     menu()
@@ -64,13 +60,10 @@ def registro_usuario():
 
 
 def run_open_service():
-    print("Segue os dados do seu pedido em aberto: \n")
-
+    print("Segue os dados dos atendimentos em aberto: \n")
     lista_final = [nome, cpf, email, fone_numero, resposta1,
                    resposta2, resposta3, resposta4, resposta5]
-
     lista_atendimentos.append(lista_final)
-
     for i, lst in enumerate(lista_atendimentos):
         print("Registro atendimento #{}: {}".format(i+1, lst))
 
@@ -78,11 +71,8 @@ def run_open_service():
 def run_assistant():
     global nome, resposta1, resposta2, resposta3, resposta4, resposta5
 
-    # armazena as informações do pedido do usuário
-
     print("Bem vindo ao nosso asistente virtual!")
     print("Por favor, preencha as perguntas conforme solicitado: \n")
-
     if nome == "":
         nome = input("Qual o seu nome? ")
     print(f"Olá, {nome}! Vamos começar o atendimento. \n")
@@ -163,7 +153,7 @@ def run_assistant():
     while True:
         print("3: Descrição simples do ocorrido e envio de imagem (opcional). ")
         print("a) Faça uma breve descrição da situação. ")
-        print("b) Envie uma imagem da situação atual do veículo (se possível).")
+        print("b) Envie uma imagem da situação atual do veículo (se possível). ")
         print("c) Pular essa opção/seguir com o atendimento. ")
         resposta3 = input("Escolha uma opção: ")
 
@@ -239,7 +229,8 @@ def run_assistant():
         lista_final = [nome, cpf, email, fone_numero, resposta1,
                        resposta2, resposta3, resposta4, resposta5]
         print("Segue o resumo do seu atendimento: \n")
-        print(lista_final)
+        print(lista_final + "\n")
+        print("Caso deseje, poderá realizar outro atendimento. \n")
 
 
 # Chama a fução menu para iniciar o programa
