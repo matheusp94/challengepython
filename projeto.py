@@ -62,7 +62,7 @@ def registro_usuario():
 def run_open_service():
     print("Segue os dados dos atendimentos em aberto: \n")
     lista_final = [nome, cpf, email, fone_numero, resposta1,
-                   resposta2, resposta3, resposta4, resposta5,
+                   resposta2, resposta3, resposta4_a, resposta4_b, resposta4_c, resposta4_d, resposta4_e, resposta5,
                    resposta6]
     lista_atendimentos.append(lista_final)
     for i, lst in enumerate(lista_atendimentos):
@@ -70,7 +70,7 @@ def run_open_service():
 
 
 def run_assistant():
-    global nome, resposta1, resposta2, resposta3, resposta4, resposta5, resposta6
+    global nome, resposta1, resposta2, resposta3, resposta4_a, resposta4_b, resposta4_c, resposta4_d, resposta4_e, resposta5, resposta6
 
     print("Bem vindo ao nosso asistente virtual!")
     print("Por favor, preencha as perguntas conforme solicitado: \n")
@@ -80,42 +80,35 @@ def run_assistant():
 
     # Primeira Pergunta
     while True:
-        print("1: Qual tipo de atendimento você precisa? \n")
-        print("a) Troca de pneu")
-        print("b) Manutenção")
-        print("c) Chaveiro para veículo")
-        print("d) Relatar furto ou roubo")
-        print("e) Guincho \n")
+        print("1: Escolha uma das opções que melhor atenda a sua necessidade. \n")
+        print("a) Meu veículo está em um local de dificil acesso.")
+        print("b) Me envolvi em uma situação de acidente.")
+        print("c) Meu veículo apresenta defeito.")
+        print("d) Preciso remover meu veículo de um local. \n")
         resposta1 = input("Escolha uma opção: ")
 
-        if resposta1.lower() == "a" or resposta1.lower() == "troca de pneu":
+        if resposta1.lower() == "a" or resposta1.lower() == "dificil acesso":
             print("Sua escolha foi registrada. \n")
             if resposta1.lower() == "a":
-                resposta1 = "Troca pneu"
+                resposta1 = "Local dificil"
             break
 
-        elif resposta1.lower() == "b" or resposta1.lower() == "manutenção":
+        elif resposta1.lower() == "b" or resposta1.lower() == "acidente":
             print("Sua escolha foi registrada. \n")
             if resposta1.lower() == "b":
-                resposta1 = "Manutenção"
+                resposta1 = "Acidente"
             break
 
-        elif resposta1.lower() == "c" or resposta1.lower() == "chaveiro para veículo":
+        elif resposta1.lower() == "c" or resposta1.lower() == "veiculo com defeito":
             print("Sua escolha foi registrada. \n")
             if resposta1.lower() == "c":
-                resposta1 = "Chaveiro para veículo"
+                resposta1 = "Veículo com defeito"
             break
 
-        elif resposta1.lower() == "d" or resposta1.lower() == "relatar furto ou roubo":
+        elif resposta1.lower() == "d" or resposta1.lower() == "remoção":
             print("Sua escolha foi registrada. \n")
             if resposta1.lower() == "d":
-                resposta1 = "Furto ou roubo"
-            break
-
-        elif resposta1.lower() == "e" or resposta1.lower() == "guincho":
-            print("Sua escolha foi registrada. \n")
-            if resposta1.lower() == "e":
-                resposta1 = "Guincho"
+                resposta1 = "Remoção veículo do local"
             break
 
         else:
@@ -123,105 +116,59 @@ def run_assistant():
 
     # Segunda Pergunta
     while True:
-        print("2: Escolha uma das opções que melhor atenda a sua necessidade. \n")
-        print("a) Preciso remover meu veículo de um local")
-        print("b) Preciso de um técnico para meu veículo")
-        print("c) Me envolvi em uma situação de acidente")
-        resposta2 = input("Escolha uma opção: ")
-
-        if resposta2.lower() == "a" or resposta2.lower() == "remover meu veículo de um local":
-            print("Sua escolha foi registrada. \n")
-            if resposta2.lower() == "a":
-                resposta2 = "Remoção veículo"
-            break
-
-        elif resposta2.lower() == "b" or resposta2.lower() == "tecnico para meu veículo":
-            print("Sua escolha foi registrada. \n")
-            if resposta2.lower() == "b":
-                resposta2 = "Envio de técnico"
-            break
-
-        elif resposta2.lower() == "c" or resposta2.lower() == "situação de acidente":
-            print("Sua escolha foi registrada. \n")
-            if resposta2.lower() == "c":
-                resposta2 = "Acidente"
-            break
-
-        else:
-            print("Por favor, responda com uma das opções possíveis. \n")
-
-    # Terceira Pergunta
-    while True:
-        print("3: Descrição simples do ocorrido e envio de imagem (opcional). \n")
-        print("a) Faça uma breve descrição da situação. ")
-        print("b) Envie uma imagem da situação atual do veículo (se possível). ")
-        print("c) Pular essa opção/seguir com o atendimento. ")
-        resposta3 = input("Escolha uma opção: ")
-
-        if resposta3.lower() == "a" or resposta3.lower() == "descrição da situação":
-            input("Sua resposta: ")
-            print(
-                "Recebemos a descrição. Você pode também enviar/alterar a imagem da situação.")
-            print(
-                "Caso não queira, você pode selecionar a opção C e pular para a próxima etapa. \n")
-            if resposta3.lower() == "a":
-                resposta3 = "Situação descrita"
-
-        elif resposta3.lower() == "b" or resposta3.lower() == "imagem":
-            # ainda não conseguimos dar a opção de upar um arquivo
-            input("link da imagem: ")
-            print(
-                "Recebemos sua imagem. Você pode também enviar/alterar a descrição da situação. \n")
-            print(
-                "Caso não queira, você pode selecionar a opção C e pular para a próxima etapa. \n")
-            if resposta3.lower() == "b":
-                resposta3 = "Imagem registrada"
-
-        elif resposta3.lower() == "c" or resposta3.lower() == "pular":
-            # ainda não conseguimos dar a opção de upar um arquivo
-            print("Você escolheu não preencher ou pular esta etapa. \n")
-            if resposta3.lower() == "c":
-                resposta3 = "Pulou pergunta"
-            break
-
-        else:
-            print("Por favor, responda com uma das opções possíveis. \n")
-
-    # Quarta Pergunta
-    while True:
-        print("4: Qual tipo de atendimento você deseja? \n")
-        print("a) Atendimento imediato. ")
-        print("b) Atendimento agendado. ")
-        resposta4 = input("Sua resposta: ")
-        if resposta4.lower() == "a" or resposta4.lower() == "imediato":
-            endereco = input(
-                "Entre com o endereço em que o veículo se encontra no momento: ")
-            print("Enviaremos nosso modal imediatamente! \n")
-            if resposta4.lower() == "a":
-                resposta4 = f"Endereço: {endereco}"
-            break
-
-        elif resposta4.lower() == "b" or resposta4.lower() == "agendado":
-            endereco_agendado = input(
-                "Digite o endereço em que o veículo se encontra: ")
-            horario_agendado = input(
-                "Digite uma data e horario que melhor atenda a sua necessidade: ")
-            if resposta4.lower() == "b":
-                resposta4 = f"Endereço: {endereco_agendado} as {horario_agendado}"
-            break
-
-        else:
-            print("Por favor, responda com uma das opções possíveis. \n")
-
-    # Quinta Pergunta REFAZER OU REMOVER
-    while True:
-        resposta5 = input("5: Por favor, nos informe a placa do seu veículo: ")
+        resposta2 = input("2: Faça um breve descrição do ocorrido: ")
         print()
         break
 
-    # Quinta Pergunta REFAZER OU REMOVER
+    # Terceira Pergunta
     while True:
-        resposta6 = input("6: Envie uma imagem do seu veículo: ")
+        resposta3 = input("3: Envie uma imagem da situação (com o veículo): ")
+        print()
+        break
+
+    # Quarta pergunta
+    while True:
+        print("4: Precisamos de algumas informações sobre o veículo. \n")
+        resposta4_a = input("a) Quantidade de eixos. ")
+        resposta4_b = input("b) Altura do veículo (metros). ")
+        resposta4_c = input("c) Modelo do veículo. ")
+        resposta4_d = input("d) Peso do veículo (em tons, sem carga). ")
+        resposta4_e = input("e) Placa do veículo. ")
+        print()
+        break
+
+    # Quinta Pergunta
+    while True:
+        print("5: Escolha a opção que identifique o peso da carga. \n")
+        print("a) Carga leve. ")
+        print("b) Carga pesada. ")
+        print("c) Sem carga. ")
+        resposta5 = input("Escolha uma opção: ")
+
+        if resposta5.lower() == "a" or resposta5.lower() == "carga leve":
+            print("Sua escolha foi registrada. \n")
+            if resposta5.lower() == "a":
+                resposta5 = "Carga leve"
+            break
+
+        elif resposta5.lower() == "b" or resposta2.lower() == "carga pesada":
+            print("Sua escolha foi registrada. \n")
+            if resposta5.lower() == "b":
+                resposta5 = "Carga pesada"
+            break
+
+        elif resposta5.lower() == "c" or resposta5.lower() == "sem carga":
+            print("Sua escolha foi registrada. \n")
+            if resposta5.lower() == "c":
+                resposta5 = "Sem carga. "
+            break
+
+        else:
+            print("Por favor, responda com uma das opções possíveis. \n")
+
+    # Sexta Pergunta
+    while True:
+        resposta6 = input("6: Insira o local do atendimento: ")
         print()
         break
 
@@ -235,7 +182,7 @@ def run_assistant():
 
     # Resumo atendimento
         lista_final = [nome, cpf, email, fone_numero, resposta1,
-                       resposta2, resposta3, resposta4, resposta5, resposta6]
+                       resposta2, resposta3, resposta4_a, resposta4_b, resposta4_c, resposta4_d, resposta4_e, resposta5, resposta6]
         print("Segue o resumo do seu atendimento: \n")
         print(lista_final)
         print()
