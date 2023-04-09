@@ -1,4 +1,10 @@
-# Equipe: Matheus, Caio, Julianny, Karen
+# Equipe:
+# Caio César Arruda = RM 99456
+# Julianny Araújo Pereira = RM 99554
+# Karen Vitória Jesus da Silva = RM 99468
+# Matheus Matos Pereira = RM 99792
+# Rodrigo Machado Cardoso = RM 94301
+
 
 # variáveis globais
 global lista_atendimentos, lista_final, nome
