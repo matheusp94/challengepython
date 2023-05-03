@@ -13,18 +13,30 @@ global lista_atendimentos, lista_final, nome
 lista_atendimentos = []
 
 # Variáveis Globais
-nome = ""
-cpf = ""
-email = ""
-fone_numero = ""
-placa_veiculo = ""
-alteracao_veiculo = ""
-imagem_veiculo = ""
+nome = ''
+cpf = ''
+email = ''
+fone_numero = ''
+placa_veiculo = ''
+alteracao_veiculo = ''
+imagem_veiculo = ''
+resposta1 = ''
+resposta2 = ''
+resposta3 = ''
+resposta4_a = ''
+resposta4_b = ''
+resposta4_c = ''
+resposta4_d = ''
+resposta4_e = ''
+resposta5 = ''
+resposta6 = ''
+
 
 # Menu Principal
 
 
 def menu():
+
     print("Bem vindo ao app Porto Seguro! \n")
     while True:
         print("a) Registre seus dados")
@@ -38,7 +50,10 @@ def menu():
         elif opcao.lower() == "b":
             run_assistant()
         elif opcao.lower() == "c":
-            run_open_service()
+            if resposta1 == '' and resposta2 == '' and resposta3 == '' and resposta4_a == '' and resposta4_b == '' and resposta4_c == '' and resposta4_d == '' and resposta4_e == '' and resposta5 == '' and resposta6 == '':
+                print("Não existem atendimentos registrados. \n")
+            else:
+                run_open_service()
         elif opcao.lower() == "d":
             print("O App da Porto Seguro está sendo encerrado...")
             exit()
