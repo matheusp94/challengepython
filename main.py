@@ -24,27 +24,29 @@ resposta6 = ''
 
 # Menu Principal
 def menu():
-    print("Bem vindo ao app Porto Seguro! \n")
+    print('=' * 70 + '\n')
+    print("Bem vindo ao app Porto Seguro!\n")
+    print('=' * 70)
     while True:
-        print("a) Registre seus dados")
-        print("b) Novo atendimento")
-        print("c) Acompanhar atendimento")
-        print("d) Excluir um chamado em aberto")
-        print("e) Encerrar atendimento")
+        print("a) Registre seus dados\n")
+        print("b) Novo atendimento\n")
+        print("c) Acompanhar atendimento\n")
+        print("d) Excluir um chamado em aberto\n")
+        print("e) Encerrar atendimento\n")
 
-        opcao = input("Digite a opção desejada (a, b, c ou d): \n")
-        if opcao.lower() == "a":
+        opcao = input("Digite a opção desejada: \n")
+        if opcao.lower() == "a" or opcao.lower() == "registre seus dados":
             registro_usuario()
-        elif opcao.lower() == "b":
+        elif opcao.lower() == "b" or opcao.lower() == "novo atendimento":
             run_assistant()
-        elif opcao.lower() == "c":
+        elif opcao.lower() == "c" or opcao.lower() == "acompanhar atendimento":
             if not lista_atendimentos:
                 print("Não existem atendimentos registrados. \n")
             else:
                 acompanhar_atendimento()
-        elif opcao.lower() == "d":
+        elif opcao.lower() == "d" or opcao.lower() == "excluir um chamado em aberto":
             excluir_atendimento()
-        elif opcao.lower() == "e":
+        elif opcao.lower() == "e" or opcao.lower() == "encerrar atendimento":
             print("O App da Porto Seguro está sendo encerrado...")
             exit()
         else:
@@ -193,14 +195,17 @@ def excluir_atendimento():
                     "Entrada inválida. Por favor, digite um número válido ou 'cancelar' para voltar ao menu.\n")
 
 
-def exibir_informacoes_atendimento(atendimento):
-    for chave, valor in atendimento.items():
+def exibir_informacoes_atendimento(registro_atendimento):
+    print("Resumo do Atendimento:")
+    print("=====================")
+    for chave, valor in registro_atendimento.items():
         if chave == "Resposta 4":
             print("Resposta 4:")
             for sub_chave, sub_valor in valor.items():
                 print(f"{sub_chave}: {sub_valor}")
         else:
             print(f"{chave}: {valor}")
+    print()
 
 
 def run_assistant():
@@ -314,7 +319,7 @@ def run_assistant():
     lista_atendimentos.append(registro_atendimento)
     print("Atendimento registrado com sucesso!\n")
 
-
+    exibir_informacoes_atendimento(registro_atendimento)
     menu()
 
 
