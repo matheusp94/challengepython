@@ -1,5 +1,8 @@
 # bibliotecas
 import re
+import time
+
+# Não esquecer add nomes integrantes equipe
 
 # variáveis globais
 lista_atendimentos = []
@@ -27,6 +30,9 @@ def menu():
     print('=' * 70 + '\n')
     print("Bem vindo ao app Porto Seguro!\n")
     print('=' * 70)
+
+    time.sleep(1)
+
     while True:
         print("a) Registre seus dados\n")
         print("b) Novo atendimento\n")
@@ -41,7 +47,8 @@ def menu():
             run_assistant()
         elif opcao.lower() == "c" or opcao.lower() == "acompanhar atendimento":
             if not lista_atendimentos:
-                print("Não existem atendimentos registrados. \n")
+                print("Não existem atendimentos registrados.")
+                print("-" * 70 + "\n")
             else:
                 acompanhar_atendimento()
         elif opcao.lower() == "d" or opcao.lower() == "excluir um chamado em aberto":
@@ -59,7 +66,8 @@ def menu():
 def registro_usuario():
     global nome, cpf, email, fone_numero
     nome = input("Qual o seu nome? ")
-    print("Nome informado! Próxima questão.\n")
+    print("Nome informado! Próxima questão.")
+    print("-" * 70 + "\n")
 
     # vericicação cpf
     def validar_cpf(cpf):
@@ -94,7 +102,8 @@ def registro_usuario():
         cpf = input("Digite o CPF (somente números): ")
 
         if validar_cpf(cpf):
-            print("CPF cadastrado! Vamos para a próxima pergunta.\n")
+            print("CPF cadastrado! Vamos para a próxima pergunta.")
+            print("-" * 70 + "\n")
             break
         else:
             print("CPF inválido. Tente novamente.\n")
@@ -109,7 +118,8 @@ def registro_usuario():
 
         if verificar_email(email):
             print(
-                "Agradecemos por informar seu e-mail. Vamos para a próxima pergunta.\n")
+                "Agradecemos por informar seu e-mail. Vamos para a próxima pergunta.")
+            print("-" * 70 + "\n")
             break
         else:
             print("O e-mail não está no formato correto. Tente novamente.\n")
@@ -146,6 +156,7 @@ def registro_usuario():
         # Verificar telefone
         if verificar_telefone(fone_numero):
             print("Agradecemos por informar seu número de contato!\n")
+            print("-" * 70 + "\n")
             break
         else:
             print("Número de telefone inválido! Tente novamente.\n")
@@ -159,7 +170,8 @@ def registro_usuario():
 
 def acompanhar_atendimento():
     if len(lista_atendimentos) == 0:
-        print("Nenhum atendimento registrado.\n")
+        print("Nenhum atendimento registrado.")
+        print("-" * 70 + "\n")
     else:
         print("Atendimentos registrados:\n")
         for i, atendimento in enumerate(lista_atendimentos):
@@ -170,7 +182,8 @@ def acompanhar_atendimento():
 
 def excluir_atendimento():
     if len(lista_atendimentos) == 0:
-        print("Nenhum atendimento registrado.\n")
+        print("Nenhum atendimento registrado.")
+        print("-" * 70 + "\n")
     else:
         while True:
             num_atendimento = input(
@@ -197,7 +210,7 @@ def excluir_atendimento():
 
 def exibir_informacoes_atendimento(registro_atendimento):
     print("Resumo do Atendimento:")
-    print("=====================")
+    print("=" * 70 + "\n")
     for chave, valor in registro_atendimento.items():
         if chave == "Resposta 4":
             print("Resposta 4:")
@@ -215,7 +228,8 @@ def run_assistant():
     print("Por favor, preencha as perguntas conforme solicitado: \n")
     if nome == "":
         nome = input("Qual o seu nome? ")
-    print(f"Olá, {nome}! Vamos começar o atendimento. \n")
+    print(f"Olá, {nome}! Vamos começar o atendimento.")
+    print("-" * 70 + "\n")
 
     # Primeira Pergunta
     print("1: Escolha uma das opções que melhor atenda a sua necessidade. \n")
@@ -226,22 +240,26 @@ def run_assistant():
     resposta1 = input("Escolha uma opção: ")
 
     if resposta1.lower() == "a" or resposta1.lower() == "dificil acesso":
-        print("Sua escolha foi registrada. \n")
+        print("Sua escolha foi registrada.")
+        print("-" * 70 + "\n")
         if resposta1.lower() == "a":
             resposta1 = "Local dificil"
 
     elif resposta1.lower() == "b" or resposta1.lower() == "acidente":
-        print("Sua escolha foi registrada. \n")
+        print("Sua escolha foi registrada.")
+        print("-" * 70 + "\n")
         if resposta1.lower() == "b":
             resposta1 = "Acidente"
 
     elif resposta1.lower() == "c" or resposta1.lower() == "veiculo com defeito":
-        print("Sua escolha foi registrada. \n")
+        print("Sua escolha foi registrada.")
+        print("-" * 70 + "\n")
         if resposta1.lower() == "c":
             resposta1 = "Veículo com defeito"
 
     elif resposta1.lower() == "d" or resposta1.lower() == "remoção":
-        print("Sua escolha foi registrada. \n")
+        print("Sua escolha foi registrada.")
+        print("-" * 70 + "\n")
         if resposta1.lower() == "d":
             resposta1 = "Remoção veículo do local"
 
@@ -249,25 +267,28 @@ def run_assistant():
         print("Por favor, responda com uma das opções possíveis. \n")
 
     # Segunda Pergunta
-
+    time.sleep(1)
     resposta2 = input("2: Faça um breve descrição do ocorrido: ")
-    print()
+    print("-" * 70 + "\n")
 
     # Terceira Pergunta
+    time.sleep(1)
     resposta3 = input(
         "3: Envie uma imagem da situação (com o veículo): ")
-    print()
+    print("-" * 70 + "\n")
 
     # Quarta pergunta
+    time.sleep(1)
     print("4: Precisamos de algumas informações sobre o veículo. \n")
     resposta4_a = input("a) Quantidade de eixos. ")
     resposta4_b = input("b) Altura do veículo (metros). ")
     resposta4_c = input("c) Modelo do veículo. ")
     resposta4_d = input("d) Peso do veículo (em tons, sem carga). ")
     resposta4_e = input("e) Placa do veículo. ")
-    print()
+    print("-" * 70 + "\n")
 
     # Quinta Pergunta
+    time.sleep(1)
     print("5: Escolha a opção que identifique o peso da carga. \n")
     print("a) Carga leve. ")
     print("b) Carga pesada. ")
@@ -275,17 +296,20 @@ def run_assistant():
     resposta5 = input("Escolha uma opção: ")
 
     if resposta5.lower() == "a" or resposta5.lower() == "carga leve":
-        print("Sua escolha foi registrada. \n")
+        print("Sua escolha foi registrada.")
+        print("-" * 70 + "\n")
         if resposta5.lower() == "a":
             resposta5 = "Carga leve"
 
     elif resposta5.lower() == "b" or resposta5.lower() == "carga pesada":
-        print("Sua escolha foi registrada. \n")
+        print("Sua escolha foi registrada.")
+        print("-" * 70 + "\n")
         if resposta5.lower() == "b":
             resposta5 = "Carga pesada"
 
     elif resposta5.lower() == "c" or resposta5.lower() == "sem carga":
-        print("Sua escolha foi registrada. \n")
+        print("Sua escolha foi registrada.")
+        print("-" * 70 + "\n")
         if resposta5.lower() == "c":
             resposta5 = "Sem carga"
 
@@ -293,8 +317,9 @@ def run_assistant():
         print("Por favor, responda com uma das opções possíveis. \n")
 
     # Sexta Pergunta
+    time.sleep(1)
     resposta6 = input("6: Insira o local do atendimento: ")
-    print()
+    print("-" * 70 + "\n")
 
     # Registro do atendimento
     registro_atendimento = {
@@ -317,9 +342,11 @@ def run_assistant():
     }
 
     lista_atendimentos.append(registro_atendimento)
-    print("Atendimento registrado com sucesso!\n")
+    print("Atendimento registrado com sucesso!")
+    print("-" * 70 + "\n")
 
     exibir_informacoes_atendimento(registro_atendimento)
+    time.sleep(2)
     menu()
 
 
