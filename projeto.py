@@ -60,10 +60,7 @@ def menu():
         else:
             print("Por favor, responda com uma das opções possíveis. \n")
 
-#### Registro de informações. O usuário tem a possibilidade de##
-# fazer um registro prévio de algumas informações para agilizar#
-# futuros atendimentos #########################################
-
+# Registro de informações do usuário
 # Dados do cliente que independem do seu pedido
 
 
@@ -143,7 +140,8 @@ def run_assistant():
 
     # Terceira Pergunta
     while True:
-        resposta3 = input("3: Envie uma imagem da situação (com o veículo): ")
+        resposta3 = input(
+            "3: Envie uma imagem da situação (com o veículo): ")
         print()
         break
 
